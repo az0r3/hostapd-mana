@@ -5,7 +5,7 @@ hostapd-mana
 [![Travis Build Status](https://travis-ci.org/sensepost/hostapd-mana.svg?branch=hostapd-2.6)](https://travis-ci.org/sensepost/hostapd-mana)
 
 ## Bootstrap
-* Gen server certs for rogue AP:
+* Gen server cert presented to user:
 ```
 openssl genrsa -out rootCA.key 2048
 openssl req -x509 -new -key rootCA.key -out rootCA.crt
