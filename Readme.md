@@ -6,7 +6,7 @@ hostapd-mana
 
 ## Bootstrap
 * Gen server certs for rogue AP:
-`
+```
 openssl genrsa -out rootCA.key 2048
 openssl req -x509 -new -key rootCA.key -out rootCA.crt
 openssl x509 rootCA.crt -out rootCA.pem
@@ -15,7 +15,7 @@ openssl genrsa -out user.key 2048
 openssl req -new -sha256 -key user.key -out user.csr
 openssl x509 -req -in user.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial -out user.crt -sha256
 openssl x509 user.crt -out user.pem
-`
+```
 * Set up iface/SSID/channel @ example.conf
 * `$ make -C hostapd -j8`
 * `# hostapd/hostapd example.conf`
