@@ -972,7 +972,11 @@ void * tls_init(const struct tls_config *conf)
 
 	SSL_CTX_set_options(ssl, SSL_OP_NO_SSLv2);
 	SSL_CTX_set_options(ssl, SSL_OP_NO_SSLv3);
-
+	
+#ifdef SSL_OP_NO_TLSv1_3
+        SSL_CTX_set_options(ssl, SSL_OP_NO_TLSv1_3); // EAP+TLS1.3 don't work well at the time
+#endif
+	
 	SSL_CTX_set_info_callback(ssl, ssl_info_cb);
 	SSL_CTX_set_app_data(ssl, context);
 	if (data->tls_session_lifetime > 0) {
@@ -2283,6 +2287,10 @@ static void tls_set_conn_flags(SSL *ssl, unsigned int flags)
 	else
 		SSL_clear_options(ssl, SSL_OP_NO_TLSv1_2);
 #endif /* SSL_OP_NO_TLSv1_2 */
+
+#ifdef SSL_OP_NO_TLSv1_3
+        SSL_set_options(ssl, SSL_OP_NO_TLSv1_3); // EAP+TLS1.3 don't work well at the time
+#endif /* SSL_OP_NO_TLSv1_3 */
 }
 
 
