@@ -7,7 +7,7 @@ hostapd-mana
 ## Bootstrap
 
 ### Be aware
-This tool appears to be *extremely* sensitive to connection quality. Substantial hours were lost on debugging an error residing in the real world.
+This tool appears to be *extremely* sensitive to connection quality. Substantial hours were spent on debugging an error residing mostly in the real world.
 
 ### Steps
 * Gen server cert presented to user:
