@@ -5,6 +5,11 @@ hostapd-mana
 [![Travis Build Status](https://travis-ci.org/sensepost/hostapd-mana.svg?branch=hostapd-2.6)](https://travis-ci.org/sensepost/hostapd-mana)
 
 ## Bootstrap
+
+### Be aware
+This tool appears to be *extremely* sensitive to connection quality. Substantial hours were lost on debugging an error residing in the real world.
+
+### Steps
 * Gen server cert presented to user:
 ```
 openssl genrsa -out rootCA.key 2048
